@@ -1,6 +1,14 @@
 {
     "cSpell.words": [
+        "analyse",
+        "chinacloudapi",
+        "CURLOPT",
+        "devicecode",
         "Entra",
-        "MSRC"
+        "FAILONERROR",
+        "MSRC",
+        "phpdotenv",
+        "phpstan",
+        "vlucas"
     ]
 }
