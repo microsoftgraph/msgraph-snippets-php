@@ -158,7 +158,7 @@ class CreateRequests {
             ->wait();
         // </CreateRequestSnippet>
 
-        return $calendar;
+        return $newCalendar;
     }
 
     private static function makeUpdateRequest(GraphServiceClient $graphClient, string $teamId): void {
@@ -184,7 +184,7 @@ class CreateRequests {
         // GET https://graph.microsoft.com/v1.0/me/events
         // Microsoft\Graph\Generated\Users\Item\Events\EventsRequestBuilderGetRequestConfiguration
         $config = new EventsRequestBuilderGetRequestConfiguration(
-            headers: ['Prefer', ['outlook.timezone="Pacific Standard Time"']]
+            headers: ['Prefer' => 'outlook.timezone="Pacific Standard Time"']
         );
 
         $events = $graphClient->me()
