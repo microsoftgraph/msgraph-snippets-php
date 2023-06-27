@@ -2,6 +2,7 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license.
 
+// <TokenProviderSnippet>
 use GuzzleHttp\Client;
 use Http\Promise\FulfilledPromise;
 use Http\Promise\Promise;
@@ -111,4 +112,5 @@ class DeviceCodeTokenProvider implements AccessTokenProvider {
         return $this->allowedHostsValidator;
     }
 }
+// </TokenProviderSnippet>
 ?>
