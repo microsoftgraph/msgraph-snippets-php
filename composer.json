@@ -9,7 +9,7 @@
         "test": "./vendor/bin/phpstan analyse -c ./phpstan.neon --level 7 ./"
     },
     "require": {
-        "microsoft/microsoft-graph": "2.0.0-RC16",
+        "microsoft/microsoft-graph": "^2.0.0-RC16",
         "vlucas/phpdotenv": "^5.5",
         "monolog/monolog": "^3.4"
     },
