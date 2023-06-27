@@ -6,6 +6,7 @@
         "devicecode",
         "Entra",
         "FAILONERROR",
+        "Giphy",
         "MSRC",
         "phpdotenv",
         "phpstan",

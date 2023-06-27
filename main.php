@@ -6,6 +6,7 @@
 require_once realpath(__DIR__ . '/vendor/autoload.php');
 require_once 'GraphHelper.php';
 require_once realpath(__DIR__ . '/snippets/BatchRequests.php');
+require_once realpath(__DIR__ . '/snippets/CreateRequests.php');
 
 // Load .env file
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__, ['.env', '.env.local'], false);
@@ -23,16 +24,19 @@ while ($choice != 0) {
     print('Please choose one of the following options:'.PHP_EOL);
     print('0. Exit'.PHP_EOL);
     print('1. Run batch samples'.PHP_EOL);
+    print('2. Run request samples'.PHP_EOL);
 
     $choice = (int)readline('');
 
     switch ($choice) {
-        case 1:
-            BatchRequests::runAllSamples($userClient);
-            break;
         case 0:
             print('Goodbye...'.PHP_EOL);
             break;
+        case 1:
+            BatchRequests::runAllSamples($userClient);
+            break;
+        case 2:
+            CreateRequests::runAllSamples($userClient);
         default:
             print('Invalid choice!'.PHP_EOL);
     }
