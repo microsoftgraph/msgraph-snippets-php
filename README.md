@@ -1,6 +1,6 @@
 # Microsoft Graph PHP SDK Snippets
 
-[![dotnet build](https://github.com/microsoftgraph/msgraph-snippets-dotnet/actions/workflows/dotnet.yml/badge.svg)](https://github.com/microsoftgraph/msgraph-snippets-dotnet/actions/workflows/dotnet.yml) ![License.](https://img.shields.io/badge/license-MIT-green.svg)
+[![PHP Composer](https://github.com/microsoftgraph/msgraph-snippets-php/actions/workflows/php.yml/badge.svg)](https://github.com/microsoftgraph/msgraph-snippets-php/actions/workflows/php.yml) ![License.](https://img.shields.io/badge/license-MIT-green.svg)
 
 This repository contains sample snippets for the [Microsoft Graph PHP SDK](https://github.com/microsoftgraph/msgraph-sdk-php). These snippets are referenced in the [Microsoft Graph SDK documentation](https://learn.microsoft.com/graph/sdks/sdks-overview).
 
@@ -32,14 +32,10 @@ This repository contains sample snippets for the [Microsoft Graph PHP SDK](https
 
 ## Configuring the sample
 
-You can set these values directly in [appsettings.json](src/SdkSnippets/appsettings.json), or you can create a copy of **appsettings.json** named **appsettings.Development.json** and set the values there.
+You can set these values directly in [.env](.env), or you can create a copy of **.env** named **.env.local** and set the values there.
 
-1. Set `clientId` to the **Application (client) ID** from your app registration.
-1. If you chose **Accounts in this organizational directory only** for **Supported account types**, set `tenantId` to your **Directory (tenant) ID**.
-
-## Authentication
-
-The first time you run this sample, it caches the user's authentication record to the file specified in `authCachePath` in **appsettings.json**. This allows the app to silently authenticate on subsequent runs as that same user. If you want to change users, delete the auth cache file (by default, **./src/SdkSnippets/auth-cache.bin**).
+1. Set `CLIENT_ID` to the **Application (client) ID** from your app registration.
+1. If you chose **Accounts in this organizational directory only** for **Supported account types**, set `TENANT_ID` to your **Directory (tenant) ID**.
 
 ## Code of conduct
 
