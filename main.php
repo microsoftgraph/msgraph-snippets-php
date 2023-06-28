@@ -11,6 +11,7 @@ require_once 'GraphHelper.php';
 require_once realpath(__DIR__ . '/snippets/BatchRequests.php');
 require_once realpath(__DIR__ . '/snippets/CreateRequests.php');
 require_once realpath(__DIR__ . '/snippets/LargeFileUpload.php');
+require_once realpath(__DIR__ . '/snippets/Paging.php');
 
 // Load .env file
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__, ['.env', '.env.local'], false);
@@ -30,6 +31,7 @@ while ($choice != 0) {
     print('1. Run batch samples'.PHP_EOL);
     print('2. Run request samples'.PHP_EOL);
     print('3. Run upload samples'.PHP_EOL);
+    print('4. Run paging samples'.PHP_EOL);
 
     $choice = (int)readline('');
 
@@ -46,6 +48,9 @@ while ($choice != 0) {
                 break;
             case 3:
                 LargeFileUpload::runAllSamples($userClient);
+                break;
+            case 4:
+                Paging::runAllSamples($userClient);
                 break;
             default:
                 print('Invalid choice!'.PHP_EOL);
