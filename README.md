@@ -4,6 +4,9 @@
 
 This repository contains sample snippets for the [Microsoft Graph PHP SDK](https://github.com/microsoftgraph/msgraph-sdk-php). These snippets are referenced in the [Microsoft Graph SDK documentation](https://learn.microsoft.com/graph/sdks/sdks-overview).
 
+> **IMPORTANT**
+> The code in this repository uses the 2.x preview version of the PHP SDK.
+
 ## Prerequisites
 
 - [PHP 8](https://www.php.net/)
