@@ -47,6 +47,7 @@ class CreateRequests {
     private static function makeReadRequest(GraphServiceClient $graphClient): Models\User {
         // <ReadRequestSnippet>
         // GET https://graph.microsoft.com/v1.0/me
+        /** @var Models\User $user */
         $user = $graphClient->me()
             ->get()
             ->wait();
@@ -66,6 +67,7 @@ class CreateRequests {
         $config = new UserItemRequestBuilderGetRequestConfiguration(
             queryParameters: $query);
 
+        /** @var Models\User $user */
         $user = $graphClient->me()
             ->get($config)
             ->wait();
@@ -88,6 +90,7 @@ class CreateRequests {
         $config = new MessagesRequestBuilderGetRequestConfiguration(
             queryParameters: $query);
 
+        /** @var Models\MessageCollectionResponse $messages */
         $messages = $graphClient->me()
             ->messages()
             ->get($config)
@@ -101,6 +104,7 @@ class CreateRequests {
         // <ItemByIdRequestSnippet>
         // GET https://graph.microsoft.com/v1.0/me/messages/{message-id}
         // messageId is a string containing the id property of the message
+        /** @var Models\Message $message */
         $message = $graphClient->me()
             ->messages()
             ->byMessageId($messageId)
@@ -124,6 +128,7 @@ class CreateRequests {
         $config = new MessageItemRequestBuilderGetRequestConfiguration(
             queryParameters: $query);
 
+        /** @var Models\Message $message */
         $message = $graphClient->me()
             ->messages()
             ->byMessageId($messageId)
@@ -152,6 +157,7 @@ class CreateRequests {
         $calendar = new Models\Calendar();
         $calendar->setName('Volunteer');
 
+        /** @var Models\Calendar $newCalendar */
         $newCalendar = $graphClient->me()
             ->calendars()
             ->post($calendar)
@@ -187,6 +193,7 @@ class CreateRequests {
             headers: ['Prefer' => 'outlook.timezone="Pacific Standard Time"']
         );
 
+        /** @var Models\EventCollectionResponse $events */
         $events = $graphClient->me()
             ->events()
             ->get($config)
@@ -209,6 +216,7 @@ class CreateRequests {
         $config = new CalendarViewRequestBuilderGetRequestConfiguration(
             queryParameters: $query);
 
+        /** @var Models\EventCollectionResponse $events */
         $events = $graphClient->me()
             ->calendarView()
             ->get($config)
