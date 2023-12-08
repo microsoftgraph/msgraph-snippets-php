@@ -11,8 +11,8 @@ use Microsoft\Graph\GraphServiceClient;
 
 class Paging {
     public static function runAllSamples(GraphServiceClient $graphClient): void {
-        //Paging::iterateAllMessages($graphClient);
-        //Paging::iterateAllMessagesWithPause($graphClient);
+        Paging::iterateAllMessages($graphClient);
+        Paging::iterateAllMessagesWithPause($graphClient);
         Paging::manuallyPageAllMessages($graphClient);
     }
 
