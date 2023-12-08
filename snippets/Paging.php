@@ -4,14 +4,16 @@
 
 use Microsoft\Graph\Core\Tasks\PageIterator;
 use Microsoft\Graph\Generated\Models;
+use Microsoft\Graph\Generated\Models\MessageCollectionResponse;
 use Microsoft\Graph\Generated\Users\Item\Messages\MessagesRequestBuilderGetQueryParameters;
 use Microsoft\Graph\Generated\Users\Item\Messages\MessagesRequestBuilderGetRequestConfiguration;
 use Microsoft\Graph\GraphServiceClient;
 
 class Paging {
     public static function runAllSamples(GraphServiceClient $graphClient): void {
-        Paging::iterateAllMessages($graphClient);
-        Paging::iterateAllMessagesWithPause($graphClient);
+        //Paging::iterateAllMessages($graphClient);
+        //Paging::iterateAllMessagesWithPause($graphClient);
+        Paging::manuallyPageAllMessages($graphClient);
     }
 
     private static function iterateAllMessages(GraphServiceClient $graphClient): void {
@@ -76,6 +78,35 @@ class Paging {
         $count = 0;
         $pageIterator->iterate($callback);
         // </ResumePagingSnippet>
+    }
+
+    private static function manuallyPageAllMessages(GraphServiceClient $graphClient): void {
+        // <ManualPagingSnippet>
+        /** @var MessageCollectionResponse $messages */
+        $messages = $graphClient->me()
+            ->messages()
+            ->get()
+            ->wait();
+
+        while (null !== $messages->getValue())
+        {
+            foreach($messages->getValue() as $message) {
+                /** @var Models\Message $message */
+                print($message->getSubject().PHP_EOL);
+            }
+
+            if (null !== $messages->getOdataNextLink()) {
+                $messages = $graphClient->me()
+                    ->messages()
+                    ->withUrl($messages->getOdataNextLink())
+                    ->get()
+                    ->wait();
+            }
+            else {
+                break;
+            }
+        }
+        // </ManualPagingSnippet>
     }
 }
 ?>
