@@ -23,7 +23,6 @@ class BatchRequests {
         // Use the request builder to generate a GET
         // request to /me
         $userRequest = $graphClient->me()->toGetRequestInformation();
-        $userRequest->setUri(BatchRequests::fixUri($userRequest));
 
         $timeZone = new \DateTimeZone('America/New_York');
         $today = new \DateTimeImmutable('today midnight', $timeZone);
@@ -32,11 +31,10 @@ class BatchRequests {
         // Use the request builder to generate a GET
         // request to /me/calendarView?startDateTime="start"&endDateTime="end"
         $query = new CalendarViewRequestBuilderGetQueryParameters(
-            startDateTime: $today->format(\DateTimeInterface::ISO8601),
-            endDateTime: $tomorrow->format(\DateTimeInterface::ISO8601));
+            startDateTime: $today->format(\DateTime::ATOM),
+            endDateTime: $tomorrow->format(\DateTime::ATOM));
         $config = new CalendarViewRequestBuilderGetRequestConfiguration(queryParameters: $query);
         $eventsRequest = $graphClient->me()->calendarView()->toGetRequestInformation($config);
-        $eventsRequest->setUri(BatchRequests::fixUri($eventsRequest));
 
         // Build the batch
         $userRequestItem = new BatchRequestItem($userRequest);
@@ -78,7 +76,6 @@ class BatchRequests {
         // Use the request builder to generate a
         // POST request to /me/events
         $addEventRequest = $graphClient->me()->events()->toPostRequestInformation($newEvent);
-        $addEventRequest->setUri(BatchRequests::fixUri($addEventRequest));
 
         $timeZone = new \DateTimeZone('America/New_York');
         $today = new \DateTimeImmutable('today midnight', $timeZone);
@@ -87,11 +84,10 @@ class BatchRequests {
         // Use the request builder to generate a GET
         // request to /me/calendarView?startDateTime="start"&endDateTime="end"
         $query = new CalendarViewRequestBuilderGetQueryParameters(
-            startDateTime: $today->format(\DateTimeInterface::ISO8601),
-            endDateTime: $tomorrow->format(\DateTimeInterface::ISO8601));
+            startDateTime: $today->format(\DateTime::ATOM),
+            endDateTime: $tomorrow->format(\DateTime::ATOM));
         $config = new CalendarViewRequestBuilderGetRequestConfiguration(queryParameters: $query);
         $eventsRequest = $graphClient->me()->calendarView()->toGetRequestInformation($config);
-        $eventsRequest->setUri(BatchRequests::fixUri($eventsRequest));
 
         // Build the batch
         // Force the requests to execute in order, so that the request for
@@ -118,12 +114,6 @@ class BatchRequests {
         $events = $batchResponse->getResponseBody($eventsRequestItem->getId(), Models\EventCollectionResponse::class);
         print('You have '.count($events->getValue()).' events on your calendar today'.PHP_EOL);
         // </DependentBatchSnippet>
-        }
-
-    // Temporary workaround for
-    // https://github.com/microsoftgraph/msgraph-sdk-php-core/issues/126
-    private static function fixUri(RequestInformation $request): string {
-        return str_replace('/users/me-token-to-replace', '/me', $request->getUri());
     }
 }
 ?>
