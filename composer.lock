@@ -1152,16 +1152,16 @@
         },
         {
             "name": "microsoft/microsoft-graph",
-            "version": "v2.38.0",
+            "version": "v2.39.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/microsoftgraph/msgraph-sdk-php.git",
-                "reference": "4a4f9464bb339d7b0c859e0339b49e1e6269260a"
+                "reference": "42c23d78c4c0987114d6535e6d6290958bf87a71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/microsoftgraph/msgraph-sdk-php/zipball/4a4f9464bb339d7b0c859e0339b49e1e6269260a",
-                "reference": "4a4f9464bb339d7b0c859e0339b49e1e6269260a",
+                "url": "https://api.github.com/repos/microsoftgraph/msgraph-sdk-php/zipball/42c23d78c4c0987114d6535e6d6290958bf87a71",
+                "reference": "42c23d78c4c0987114d6535e6d6290958bf87a71",
                 "shasum": ""
             },
             "require": {
@@ -1193,9 +1193,9 @@
             "homepage": "https://developer.microsoft.com/en-us/graph",
             "support": {
                 "issues": "https://github.com/microsoftgraph/msgraph-sdk-php/issues",
-                "source": "https://github.com/microsoftgraph/msgraph-sdk-php/tree/v2.38.0"
+                "source": "https://github.com/microsoftgraph/msgraph-sdk-php/tree/v2.39.0"
             },
-            "time": "2025-06-25T10:28:11+00:00"
+            "time": "2025-07-02T12:52:23+00:00"
         },
         {
             "name": "microsoft/microsoft-graph-core",
@@ -2787,16 +2787,16 @@
         },
         {
             "name": "tbachert/spi",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Nevay/spi.git",
-                "reference": "86e355edfdd57f9cb720bd2ac3af7dde521ca0e7"
+                "reference": "e7078767866d0a9e0f91d3f9d42a832df5e39002"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Nevay/spi/zipball/86e355edfdd57f9cb720bd2ac3af7dde521ca0e7",
-                "reference": "86e355edfdd57f9cb720bd2ac3af7dde521ca0e7",
+                "url": "https://api.github.com/repos/Nevay/spi/zipball/e7078767866d0a9e0f91d3f9d42a832df5e39002",
+                "reference": "e7078767866d0a9e0f91d3f9d42a832df5e39002",
                 "shasum": ""
             },
             "require": {
@@ -2833,9 +2833,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Nevay/spi/issues",
-                "source": "https://github.com/Nevay/spi/tree/v1.0.4"
+                "source": "https://github.com/Nevay/spi/tree/v1.0.5"
             },
-            "time": "2025-06-28T20:18:22+00:00"
+            "time": "2025-06-29T15:42:06+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
