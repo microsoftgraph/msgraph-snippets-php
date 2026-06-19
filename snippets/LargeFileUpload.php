@@ -45,7 +45,9 @@ class LargeFileUpload {
 
         $largeFileUpload = new LargeFileUploadTask($uploadSession, $graphClient->getRequestAdapter(), $file);
         $totalSize = $file->getSize();
-        $progress = fn($prog) => print('Uploaded '.$prog[1].' of '.$totalSize.' bytes'.PHP_EOL);
+        $progress = function(array $prog) use ($totalSize): void {
+            echo 'Uploaded '.$prog[1].' of '.$totalSize.' bytes'.PHP_EOL;
+        };
 
         try {
             $largeFileUpload->upload($progress)->wait();
@@ -103,7 +105,9 @@ class LargeFileUpload {
 
         $largeFileUpload = new LargeFileUploadTask($uploadSession, $graphClient->getRequestAdapter(), $file);
         $totalSize = $file->getSize();
-        $progress = fn($prog) => print('Uploaded '.$prog[1].' of '.$totalSize.' bytes'.PHP_EOL);
+        $progress = function(array $prog) use ($totalSize): void {
+            echo 'Uploaded '.$prog[1].' of '.$totalSize.' bytes'.PHP_EOL;
+        };
 
         try {
             $largeFileUpload->upload($progress)->wait();
